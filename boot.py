@@ -8,7 +8,7 @@ import board
 import digitalio
 import storage
 
-noStorage = True
+noStorage = False
 noStoragePin = digitalio.DigitalInOut(GP15)
 noStoragePin.switch_to_input(pull=digitalio.Pull.UP)
 noStorageStatus = noStoragePin.value
@@ -23,9 +23,9 @@ noStorageStatus = noStoragePin.value
 # Pico W:
 #   GP15 not connected == USB NOT visible
 #   GP15 connected to GND == USB visible
-
+"""
 if(board.board_id == 'raspberry_pi_pico'):
-    # On Pi Pico, default USB was visible now NOT
+    # On Pi Pico, default USB visible
     noStorage = not noStorageStatus
 elif(board.board_id == 'raspberry_pi_pico_w'):
     # on Pi Pico W, default to USB hidden by default
@@ -39,3 +39,7 @@ if(noStorage == True):
 else:
     # normal boot
     print("USB drive enabled")
+"""
+
+storage.disable_usb_drive()
+print("Disabling USB drive")
