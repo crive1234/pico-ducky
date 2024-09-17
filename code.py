@@ -18,7 +18,7 @@ if(board.board_id == 'raspberry_pi_pico_w'):
 
 
 # sleep at the start to allow the device to be recognized by the host computer
-time.sleep(.5)
+time.sleep(.2)
 
 def startWiFi():
     import ipaddress
